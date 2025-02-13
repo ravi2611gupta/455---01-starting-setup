@@ -1,17 +1,20 @@
 import { Action, createAction, props } from '@ngrx/store';
 
-export const increment = createAction('[Counter] Increment');
+export const INCREMENT_BY_VALUE = '[Counter] IncrementByValue';
+export const INCREMENT = '[Counter] Increment';
 
-// export const incrementByValue = createAction(
-//   '[Counter] IncrementByValue',
-//   props<{ value: number }>()
-// );
-export const INCREMENT_BY_VALUE = '[Counter] IncrementByValue'
-export class IncrementAction implements Action {
-  readonly type: string = INCREMENT_BY_VALUE;
+export const increment = createAction(INCREMENT);
 
-  //   constructor(payload: { value: number }) {}
-  constructor(public value: number) {}
-}
+export const incrementByValue = createAction(
+  INCREMENT_BY_VALUE,
+  props<{ value: number }>()
+);
 
-export type CounterActions = IncrementAction;
+// export class IncrementAction implements Action {
+//   readonly type: string = INCREMENT_BY_VALUE;
+
+//   //   constructor(payload: { value: number }) {}
+//   constructor(public value: number) {}
+// }
+
+// export type CounterActions = IncrementAction;

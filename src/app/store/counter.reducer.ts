@@ -1,16 +1,23 @@
 import { createReducer, on } from '@ngrx/store';
-import { increment, incrementByValue } from './counter.actions';
+import {
+  decrement,
+  decrementByValue,
+  increment,
+  incrementByValue,
+} from './counter.actions';
 // import { increment, incrementByValue } from './counter.actions';
 
 const initialState = 0;
 
 export const counterReducer = createReducer(
   initialState,
-  on(increment, (state) => {
-    return state + 1;
-  }),
+  on(increment, (state) => state + 1),
   on(incrementByValue, (state, action) => {
-    return state + action.value
+    return state + action.value;
+  }),
+  on(decrement, (state) => state - 1),
+  on(decrementByValue, (state, action) => {
+    return state - action.value;
   })
 );
 

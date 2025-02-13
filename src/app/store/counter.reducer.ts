@@ -1,5 +1,6 @@
-import { createReducer, on } from '@ngrx/store';
-import { increment, incrementByValue } from './counter.actions';
+import { Action, createReducer, on } from '@ngrx/store';
+import { CounterActions, INCREMENT_BY_VALUE, IncrementAction } from './counter.actions';
+// import { increment, incrementByValue } from './counter.actions';
 
 const initialState = 0;
 
@@ -14,9 +15,9 @@ const initialState = 0;
 // );
 
 // ! Alternative of creating the reducers.
-export function counterReducer(state = initialState, action: any) {
-    if(action.type === '[Counter] IncrementByValue') {
-        return state + action.value;
-    }   
+export function counterReducer(state = initialState, action: CounterActions | Action) {
+  if (action.type === INCREMENT_BY_VALUE) {
+    return state + (action as IncrementAction).value;
+  }
   return state;
 }

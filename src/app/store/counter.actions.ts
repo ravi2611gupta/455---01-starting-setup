@@ -4,7 +4,11 @@ export const INCREMENT_BY_VALUE = '[Counter] IncrementByValue';
 export const INCREMENT = '[Counter] Increment';
 export const DECREMENT = '[Counter] Decrement';
 export const DECREMENT_BY_VALUE = '[Counter] DecrementByValue';
+export const INIT = '[Counter] Init';
+export const SET = '[Counter] Set';
 
+export const init = createAction(INIT);
+export const set = createAction(SET, props<{value: number}>());
 export const increment = createAction(INCREMENT);
 
 export const incrementByValue = createAction(

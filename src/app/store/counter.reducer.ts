@@ -4,6 +4,7 @@ import {
   decrementByValue,
   increment,
   incrementByValue,
+  set,
 } from './counter.actions';
 // import { increment, incrementByValue } from './counter.actions';
 
@@ -18,7 +19,8 @@ export const counterReducer = createReducer(
   on(decrement, (state) => state - 1),
   on(decrementByValue, (state, action) => {
     return state - action.value;
-  })
+  }),
+  on(set, (state, action) => action.value)
 );
 
 // ! Alternative of creating the reducers.
